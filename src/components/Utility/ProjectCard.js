@@ -81,6 +81,36 @@ export default function ProjectCard({ project }) {
         </ProjectWrapperRTL>
       )}
       {/* Finish Mobile */}
+
+      <ProjectWrapperMobile>
+        <ProjectInfoMobile image={project.image}>
+          <TitleInfo>
+            <Type mode={project.display}>{project.type}</Type>
+            <Title>{project.name}</Title>
+          </TitleInfo>
+          <DescriptionBox>
+            <Description>{project.description}</Description>
+          </DescriptionBox>
+        </ProjectInfoMobile>
+        <LinkInfo>
+          <GitLink href={project.github} target="_blank">
+            <UseAnimations
+              animation={github}
+              size={40}
+              autoPlay={true}
+              loop={true}
+              strokeColor="white"
+            />
+          </GitLink>
+          <Link href={project.link} target="_blank">
+            <UseAnimations
+              animation={maximizeMinimize2}
+              size={40}
+              strokeColor="white"
+            />
+          </Link>
+        </LinkInfo>
+      </ProjectWrapperMobile>
     </ProjectCardContainer>
   );
 }
@@ -105,6 +135,41 @@ const ProjectWrapperLTR = styled.div`
 `;
 
 const ProjectWrapperRTL = styled(ProjectWrapperLTR)``;
+
+const ProjectWrapperMobile = styled.div`
+  //make image background of the div
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const ProjectInfoMobile = styled.div`
+  background-image: url(${(props) => props.image});
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 200px;
+  margin: 0 auto;
+  padding-top: 10px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 320px) {
+    width: 250px;
+    height: 100px;
+  }
+`;
 
 const ProjectImageContainerLTR = styled.div`
   grid-column: 7 / -1;
@@ -146,7 +211,12 @@ const ProjectImage = styled.img`
 const TitleInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: ${(props) => (props.mode === "LTR" ? "flex-end" : "flex-start")};
+  align-items: ${(props) =>
+    props.mode === "LTR"
+      ? "flex-end"
+      : props.mode === "RTL"
+      ? "flex-start"
+      : "center"};
   justify-content: center;
 `;
 
@@ -164,7 +234,8 @@ const Title = styled.h4`
   font-size: 1.5rem;
   margin: 10px 0;
   padding: 0;
-  text-align: ${(props) => (props.mode === "LTR" ? "right" : "left")};
+  text-align: ${(props) =>
+    props.mode === "LTR" ? "right" : props.mode === "RTL" ? "left" : "center"};
 `;
 
 const DescriptionBox = styled.div`
@@ -172,10 +243,16 @@ const DescriptionBox = styled.div`
   padding: 5px 10px;
   border-radius: 5px;
   max-width: 400px;
+
+  @media (max-width: 768px) {
+    //add background color with opacity
+    background-color: rgba(35, 53, 84, 0.7)
+;
 `;
 
 const Description = styled.p`
-  text-align: ${(props) => (props.mode === "LTR" ? "right" : "left")};
+  text-align: ${(props) =>
+    props.mode === "LTR" ? "right" : props.mode === "RTL" ? "left" : "center"};
   color: #fafafa;
   padding: 0px 5px;
   line-height: 1.5;
@@ -185,7 +262,11 @@ const Description = styled.p`
 const LinkInfo = styled.div`
   display: flex;
   justify-content: ${(props) =>
-    props.mode === "LTR" ? "flex-end" : "flex-start"};
+    props.mode === "LTR"
+      ? "flex-end"
+      : props.mode === "RTL"
+      ? "flex-start"
+      : "center"};
   align-items: center;
   margin: 10px 0;
 `;
