@@ -42,12 +42,10 @@ const HeroContainer = styled.section`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  height: calc(100vh - 240px);
-  margin-top: 100px;
+  margin: 140px 0px;
 
   @media (max-width: 768px) {
     padding: 2rem 2rem;
-    height: calc(100vh - 200px);
   }
 `;
 
