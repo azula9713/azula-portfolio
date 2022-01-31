@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FaBars } from "react-icons/fa";
 
 import NavItems from "../data/NavItems";
 
@@ -38,6 +37,7 @@ export default function Header() {
             </Item>
           </Link>
         ))}
+        <ResumeButton>Resume</ResumeButton>
       </ItemsContainer>
       <HeaderMobileWrapper>
         <MenuAction>
@@ -46,7 +46,7 @@ export default function Header() {
               setIsOpen(true);
             }}
           >
-            <IconSmall icon={faBars} />
+            <FaBars color="#64ffda" size={25} />
           </CustomMenu>
         </MenuAction>
         <BurgerNav show={isOpen}>
@@ -71,19 +71,22 @@ export default function Header() {
               </svg>
             </CustomClose>
           </CloseWrapper>
-          {NavItems.map((item) => (
-            <Link
-              to={item.id}
-              key={item.id}
-              spy={true}
-              smooth={true}
-              offset={-100}
-            >
-              <NavigationItem>
-                # <ItemName>{item.name}</ItemName>
-              </NavigationItem>
-            </Link>
-          ))}
+          <MobItems>
+            {NavItems.map((item) => (
+              <Link
+                to={item.id}
+                key={item.id}
+                spy={true}
+                smooth={true}
+                offset={-100}
+              >
+                <NavigationItem>
+                  # <ItemName>{item.name}</ItemName>
+                </NavigationItem>
+              </Link>
+            ))}
+            <ResumeButton>Resume</ResumeButton>
+          </MobItems>
         </BurgerNav>
       </HeaderMobileWrapper>
     </HeaderContainer>
@@ -101,6 +104,8 @@ const HeaderContainer = styled.header`
   position: fixed;
   z-index: 9999;
   background-color: #0a192f;
+  //add shadow bottom
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const LogoContainer = styled.div`
@@ -116,14 +121,6 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   width: 100%;
   padding: 1rem;
-`;
-
-const IconSmall = styled(FontAwesomeIcon)`
-  color: #64ffda;
-  padding: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
 `;
 
 const ItemsContainer = styled.div`
@@ -147,6 +144,7 @@ const Item = styled.label`
 const ItemName = styled.span`
   color: white;
   font-family: "Fira Code";
+  font-size: 0.9rem;
 
   &:hover {
     color: #64ffda;
@@ -217,7 +215,7 @@ const CloseWrapper = styled.div`
 const NavigationItem = styled.li`
   list-style: none;
   color: #64ffda;
-  margin: 0px 50px;
+  margin: 20px 50px;
   padding: 15px 0;
   font-weight: 600;
   cursor: pointer;
@@ -228,4 +226,30 @@ const NavigationItem = styled.li`
     transition: all 0.3s ease-in-out;
     transform: translateY(-3px);
   }
+`;
+
+const ResumeButton = styled.button`
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #64ffda;
+  font-family: "Fira Code";
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: max-content;
+
+  &:hover {
+    background-color: #64ffda;
+    color: #233554;
+  }
+`;
+
+const MobItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

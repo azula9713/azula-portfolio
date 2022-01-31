@@ -25,13 +25,14 @@ const ContactContainer = styled.section`
   overflow: hidden;
   padding: 10px 24px;
   margin-top: 100px;
+  margin-bottom: 200px;
   /* height: calc(100vh - 240px); */
 
   @media (max-width: 768px) {
     padding: 8px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 200px;
+    margin-bottom: 160px;
   }
 `;
 

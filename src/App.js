@@ -2,9 +2,11 @@ import styled from "styled-components";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Projects />
         <Contact />
       </DataContainer>
+      <Sidebar />
+      <Footer />
     </div>
   );
 }
