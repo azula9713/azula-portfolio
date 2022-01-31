@@ -11,11 +11,10 @@ export default function About() {
       <AboutDescription>
         <ParagraphContainer>
           <AboutParagraph>
-            Hello! My name is Nilesh (also known as{" "}
-            <ColoredText>Azula9713</ColoredText>) and I enjoy creating things
-            that live on the internet. My interest in web development started
-            back in 2017 when during my university studies, I assume that one
-            little project taught me a lot about {""}
+            Hello! My name is Nilesh and I enjoy creating things that live on
+            the internet. My interest in web development started back in 2017
+            when during my university studies, I assume that one little project
+            taught me a lot about {""}
             <ColoredText>HTML and CSS</ColoredText> .
           </AboutParagraph>
           <AboutParagraph>
