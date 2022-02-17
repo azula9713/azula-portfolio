@@ -21,6 +21,13 @@ export default function ProjectCard({ project }) {
               <Description mode={project.display}>
                 {project.description}
               </Description>
+              <TechContainer mode={project.display}>
+                {project.tech.map((tech) => (
+                  <TechItem mode={project.display} key={tech}>
+                    {tech}
+                  </TechItem>
+                ))}
+              </TechContainer>
             </DescriptionBox>
 
             <LinkInfo mode={project.display}>
@@ -55,6 +62,13 @@ export default function ProjectCard({ project }) {
               <Description mode={project.display}>
                 {project.description}
               </Description>
+              <TechContainer mode={project.display}>
+                {project.tech.map((tech) => (
+                  <TechItem mode={project.display} key={tech}>
+                    {tech}
+                  </TechItem>
+                ))}
+              </TechContainer>
             </DescriptionBox>
             <LinkInfo mode={project.display}>
               <GitLink href={project.github} target="_blank">
@@ -88,8 +102,16 @@ export default function ProjectCard({ project }) {
             <Type mode={project.display}>{project.type}</Type>
             <Title>{project.name}</Title>
           </TitleInfo>
+          <ProjectImageMobile src={project.image} alt={project.name} />
           <DescriptionBox>
             <Description>{project.description}</Description>
+            <TechContainer>
+              {project.tech.map((tech) => (
+                <TechItem mode={project.display} key={tech}>
+                  {tech}
+                </TechItem>
+              ))}
+            </TechContainer>
           </DescriptionBox>
         </ProjectInfoMobile>
         <LinkInfo>
@@ -150,7 +172,7 @@ const ProjectWrapperMobile = styled.div`
 `;
 
 const ProjectInfoMobile = styled.div`
-  background-image: url(${(props) => props.image});
+  /* background-image: url(${(props) => props.image}); */
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -160,7 +182,7 @@ const ProjectInfoMobile = styled.div`
   margin: 0 auto;
   padding-top: 10px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     width: 100%;
     height: 100%;
   }
@@ -245,9 +267,12 @@ const DescriptionBox = styled.div`
   max-width: 400px;
 
   @media (max-width: 768px) {
-    //add background color with opacity
-    background-color: rgba(35, 53, 84, 0.7)
-;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Description = styled.p`
@@ -276,3 +301,42 @@ const GitLink = styled.a`
 `;
 
 const Link = styled(GitLink)``;
+
+const TechContainer = styled.div`
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: ${(props) =>
+    props.mode === "LTR" ? "flex-end" : "flex-start"};
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const TechItem = styled.label`
+  &:before {
+    //add a bullet
+    content: "•";
+    display: inline-block;
+  }
+
+  color: #64ffda;
+  font-family: "Fira Code";
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 5px;
+  text-align: ${(props) => (props.mode === "LTR" ? "right" : "left")};
+  white-space: nowrap;
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const ProjectImageMobile = styled.img`
+  width: 100%;
+`;

@@ -37,7 +37,12 @@ export default function Header() {
             </Item>
           </Link>
         ))}
-        <ResumeButton>Resume</ResumeButton>
+        <a
+          href="https://www.dropbox.com/s/zthjqc5rt6t6lj7/Nilesh_Hemachandra_-_Software_Engineer_Updated.pdf?dl=0"
+          target="_blank"
+        >
+          <ResumeButton>Resume</ResumeButton>
+        </a>
       </ItemsContainer>
       <HeaderMobileWrapper>
         <MenuAction>
@@ -85,7 +90,12 @@ export default function Header() {
                 </NavigationItem>
               </Link>
             ))}
-            <ResumeButton>Resume</ResumeButton>
+            <a
+              href="https://www.dropbox.com/s/zthjqc5rt6t6lj7/Nilesh_Hemachandra_-_Software_Engineer_Updated.pdf?dl=0"
+              target="_blank"
+            >
+              <ResumeButton>Resume</ResumeButton>
+            </a>
           </MobItems>
         </BurgerNav>
       </HeaderMobileWrapper>
