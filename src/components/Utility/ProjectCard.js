@@ -3,6 +3,17 @@ import styled from "styled-components";
 import UseAnimations from "react-useanimations";
 import github from "react-useanimations/lib/github";
 import maximizeMinimize2 from "react-useanimations/lib/maximizeMinimize2";
+import TechStackContainer from "./TechStackContainer";
+
+function props_mode(prps) {
+  if (prps === "LTR") {
+    return "flex-end";
+  } else if (prps === "RTL") {
+    return "flex-start";
+  } else {
+    return "center";
+  }
+}
 
 export default function ProjectCard({ project }) {
   return (
@@ -21,13 +32,7 @@ export default function ProjectCard({ project }) {
               <Description mode={project.display}>
                 {project.description}
               </Description>
-              <TechContainer mode={project.display}>
-                {project.tech.map((tech) => (
-                  <TechItem mode={project.display} key={tech}>
-                    {tech}
-                  </TechItem>
-                ))}
-              </TechContainer>
+              <TechStackContainer project={project} />
             </DescriptionBox>
 
             <LinkInfo mode={project.display}>
@@ -62,13 +67,7 @@ export default function ProjectCard({ project }) {
               <Description mode={project.display}>
                 {project.description}
               </Description>
-              <TechContainer mode={project.display}>
-                {project.tech.map((tech) => (
-                  <TechItem mode={project.display} key={tech}>
-                    {tech}
-                  </TechItem>
-                ))}
-              </TechContainer>
+              <TechStackContainer project={project} />
             </DescriptionBox>
             <LinkInfo mode={project.display}>
               <GitLink href={project.github} target="_blank">
@@ -105,13 +104,7 @@ export default function ProjectCard({ project }) {
           <ProjectImageMobile src={project.image} alt={project.name} />
           <DescriptionBox>
             <Description>{project.description}</Description>
-            <TechContainer>
-              {project.tech.map((tech) => (
-                <TechItem mode={project.display} key={tech}>
-                  {tech}
-                </TechItem>
-              ))}
-            </TechContainer>
+           <TechStackContainer project={project} />
           </DescriptionBox>
         </ProjectInfoMobile>
         <LinkInfo>
@@ -233,12 +226,7 @@ const ProjectImage = styled.img`
 const TitleInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: ${(props) =>
-    props.mode === "LTR"
-      ? "flex-end"
-      : props.mode === "RTL"
-      ? "flex-start"
-      : "center"};
+  align-items: ${(props) => props_mode(props.mode)};
   justify-content: center;
 `;
 
@@ -286,12 +274,7 @@ const Description = styled.p`
 
 const LinkInfo = styled.div`
   display: flex;
-  justify-content: ${(props) =>
-    props.mode === "LTR"
-      ? "flex-end"
-      : props.mode === "RTL"
-      ? "flex-start"
-      : "center"};
+  justify-content: ${(props) =>props_mode(props.mode)};
   align-items: center;
   margin: 10px 0;
 `;
@@ -302,40 +285,7 @@ const GitLink = styled.a`
 
 const Link = styled(GitLink)``;
 
-const TechContainer = styled.div`
-  padding: 5px 10px;
-  border-radius: 5px;
-  max-width: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: ${(props) =>
-    props.mode === "LTR" ? "flex-end" : "flex-start"};
 
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-const TechItem = styled.label`
-  &:before {
-    //add a bullet
-    content: "•";
-    display: inline-block;
-  }
-
-  color: #64ffda;
-  font-family: "Fira Code";
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-right: 5px;
-  text-align: ${(props) => (props.mode === "LTR" ? "right" : "left")};
-  white-space: nowrap;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
 
 const ProjectImageMobile = styled.img`
   width: 100%;

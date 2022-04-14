@@ -39,7 +39,7 @@ export default function Header() {
         ))}
         <a
           href="https://www.dropbox.com/s/zthjqc5rt6t6lj7/Nilesh_Hemachandra_-_Software_Engineer_Updated.pdf?dl=0"
-          target="_blank"
+          target="_blank" rel="noreferrer"
         >
           <ResumeButton>Resume</ResumeButton>
         </a>
@@ -92,7 +92,7 @@ export default function Header() {
             ))}
             <a
               href="https://www.dropbox.com/s/zthjqc5rt6t6lj7/Nilesh_Hemachandra_-_Software_Engineer_Updated.pdf?dl=0"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <ResumeButton>Resume</ResumeButton>
             </a>

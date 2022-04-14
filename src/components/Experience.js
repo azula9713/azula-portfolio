@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import Tooltip from "react-simple-tooltip";
-import { css } from "styled-components";
 
 import IntroTitle from "./Utility/IntroTitle";
 import WokrPlaces from "../data/WorkPlaces";
