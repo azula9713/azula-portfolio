@@ -18,11 +18,7 @@ const WokrPlaces = [
     tasks: [
       {
         id: 1,
-        name: "Developed a web application for a client to manage their inventory of products.",
-      },
-      {
-        id: 2,
-        name: "Worked on a content streaming platform to stream videos to the client’s devices.",
+        name: "Working with Australian clients and tailor website to their needs",
       },
     ],
   },
@@ -54,6 +50,14 @@ const WokrPlaces = [
       {
         id: 2,
         name: "Worked on a content streaming platform to stream videos to the client’s devices.",
+      },
+      {
+        id: 3,
+        name: "Made a flight booking web application using a third party API.",
+      },
+      {
+        id: 4,
+        name: "Created a real estate web application from scratch using a third party API.",
       },
     ],
   },
