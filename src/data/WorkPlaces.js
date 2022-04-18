@@ -2,9 +2,32 @@ const WokrPlaces = [
   {
     id: 1,
     tabId: "tab-1",
+    name: "Swivel Tech",
+    position: "Software Engineer",
+    date: "April 2022 - Present",
+    techStack: [
+      { name: "React", code: "react" },
+      { name: "Next JS", code: "nextjs" },
+      { name: "Tailwind CSS", code: "tailwindcss" },
+      { name: "Typescript", code: "typescript" },
+      { name: "Redux", code: "redux" },
+      { name: "Node.js", code: "nodejs" },
+      { name: "MongoDB", code: "mongodb" },
+      { name: "Github", code: "github" },
+    ],
+    tasks: [
+      {
+        id: 1,
+        name: "Working with Australian clients and tailor website to their needs",
+      },
+    ],
+  },
+  {
+    id: 2,
+    tabId: "tab-2",
     name: "Aiken Labs",
     position: "Software Engineer",
-    date: "May 2021 - Present",
+    date: "May 2021 - April 2022",
     techStack: [
       { name: "React", code: "react" },
       { name: "HTML-5", code: "html" },
@@ -26,13 +49,21 @@ const WokrPlaces = [
       },
       {
         id: 2,
-        name: "Developed a web application for a client to manage their inventory of products.",
+        name: "Worked on a content streaming platform to stream videos to the client’s devices.",
+      },
+      {
+        id: 3,
+        name: "Made a flight booking web application using a third party API.",
+      },
+      {
+        id: 4,
+        name: "Created a real estate web application from scratch using a third party API.",
       },
     ],
   },
   {
-    id: 2,
-    tabId: "tab-2",
+    id: 3,
+    tabId: "tab-3",
     name: "Eutech Cybernetics",
     techStack: [
       { name: "React", code: "react" },
@@ -51,17 +82,17 @@ const WokrPlaces = [
     tasks: [
       {
         id: 1,
-        name: "Developed a web application for a client to manage their inventory of products.",
+        name: "Worked with React JS to build dashboards for the company’s internal product use.",
       },
       {
         id: 2,
-        name: "Developed a web application for a client to manage their inventory of products.",
+        name: "Developed APIs using Node.js to communicate with the company’s internal database.",
       },
     ],
   },
   {
-    id: 3,
-    tabId: "tab-3",
+    id: 4,
+    tabId: "tab-4",
     name: "Ceylon Electricity Board",
     techStack: [
       { name: "XML", code: "xml" },
@@ -76,11 +107,11 @@ const WokrPlaces = [
     tasks: [
       {
         id: 1,
-        name: "Developed a web application for a client to manage their inventory of products.",
+        name: "Created APIs using .NET to communicate with the Solar Energy Department’s database.",
       },
       {
         id: 2,
-        name: "Developed a web application for a client to manage their inventory of products.",
+        name: "Developed some web pages using HTML-5 and CSS to display data.",
       },
     ],
   },

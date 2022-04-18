@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import IntroTitle from "./Utility/IntroTitle";
 
-import ProfileImage from "../assets/images/profile.jpeg";
+import ProfileImage from "../assets/images/imagefb.jpeg";
 
 export default function About() {
   return (
